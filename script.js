@@ -16,15 +16,18 @@ Nombre: ${nombre}
 Edad: ${edad}
 `;
 
-            const respuesta = await fetch("/api/enviar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    contenido
-                })
-            });
+            const respuesta = await fetch(
+    "https://rams-nine-smoky.vercel.app/api/enviar",
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            contenido
+        })
+    }
+);
 
             if (respuesta.ok) {
                 alert("Formulario enviado correctamente");
