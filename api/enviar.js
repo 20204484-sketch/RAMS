@@ -8,6 +8,11 @@ export default async function handler(req, res) {
 
         const { pdfBase64 } = req.body;
 
+        console.log(
+  "PDF tamaño KB:",
+  Math.round(pdfBase64.length / 1024)
+);
+
         const respuesta = await resend.emails.send({
 
             from: "onboarding@resend.dev",
