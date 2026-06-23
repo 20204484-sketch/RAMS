@@ -91,7 +91,8 @@ if (uploadError) {
     console.error(uploadError);
 
     alert(
-        "Error al subir PDF a Supabase"
+        "Error Supabase: " +
+        uploadError.message
     );
 
     return;
