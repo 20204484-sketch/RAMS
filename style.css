@@ -212,3 +212,67 @@ input[type="email"]{
     padding:6px;
     box-sizing:border-box;
 }
+.tabla-c{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.tabla-c th,
+.tabla-c td{
+    border:1px solid black;
+    padding:5px;
+}
+
+.tabla-c th{
+    background:#f2f2f2;
+    text-align:center;
+}
+
+.tabla-c input{
+    width:100%;
+    border:none;
+    box-sizing:border-box;
+}
+
+.tabla-evaluacion{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.tabla-evaluacion th,
+.tabla-evaluacion td{
+    border:1px solid black;
+    padding:8px;
+}
+
+.tabla-evaluacion td:first-child,
+.tabla-evaluacion td:nth-child(5){
+    width:35%;
+}
+
+.tabla-evaluacion input{
+    transform:scale(1.2);
+}
+
+.tratamiento{
+    border:1px solid black;
+    padding:10px;
+    display:flex;
+    gap:15px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.tratamiento input[type=text]{
+    flex:1;
+}
+
+.problema-calidad{
+    border:1px solid black;
+    border-top:none;
+    padding:10px;
+}
+
+.registro{
+    width:300px;
+}
