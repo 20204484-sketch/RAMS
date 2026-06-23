@@ -8,9 +8,15 @@ export default async function handler(req, res) {
 
         const { pdfBase64 } = req.body;
 
-        console.log(
+        console.log("BODY:", req.body);
+
+const { pdfBase64 } = req.body || {};
+
+console.log(
   "PDF tamaño KB:",
-  Math.round(pdfBase64.length / 1024)
+  pdfBase64
+    ? Math.round(pdfBase64.length / 1024)
+    : "NO RECIBIDO"
 );
 
         const respuesta = await resend.emails.send({
