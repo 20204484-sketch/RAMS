@@ -24,78 +24,57 @@
 
     <table class="tabla-rams">
 
-        <tr>
-            <th colspan="6">
-                A. DATOS DEL PACIENTE
-            </th>
-        </tr>
+    <tr>
+        <th colspan="8">
+            A. DATOS DEL PACIENTE
+        </th>
+    </tr>
 
-        <tr>
-            <td>Nombres o Iniciales (*)</td>
+    <tr>
+        <td class="titulo">Nombres o iniciales (*)</td>
+        <td colspan="3">
+            <input type="text" id="nombre">
+        </td>
 
-            <td colspan="2">
-                <input type="text" id="nombre">
-            </td>
+        <td class="titulo">Edad (*)</td>
+        <td>
+            <input type="number" id="edad">
+        </td>
 
-            <td>Edad (*)</td>
+        <td class="titulo">Sexo (*)</td>
+        <td>
+            <label><input type="radio" name="sexo" value="F"> F</label>
+            <label><input type="radio" name="sexo" value="M"> M</label>
+        </td>
+    </tr>
 
-            <td>
-                <input type="number" id="edad">
-            </td>
+    <tr>
+        <td class="titulo">Peso (Kg)</td>
+        <td>
+            <input type="number" id="peso">
+        </td>
 
-        </tr>
+        <td class="titulo">Historia Clínica o DNI</td>
+        <td colspan="5">
+            <input type="text" id="dni">
+        </td>
+    </tr>
 
-        <tr>
+    <tr>
+        <td class="titulo">Establecimiento</td>
+        <td colspan="7">
+            <input type="text" id="establecimiento">
+        </td>
+    </tr>
 
-            <td>Sexo (*)</td>
+    <tr>
+        <td class="titulo">Diagnóstico Principal</td>
+        <td colspan="7">
+            <input type="text" id="diagnostico">
+        </td>
+    </tr>
 
-            <td>
-                <label>
-                    <input type="radio" name="sexo" value="F">
-                    F
-                </label>
-
-                <label>
-                    <input type="radio" name="sexo" value="M">
-                    M
-                </label>
-            </td>
-
-            <td>Peso (Kg)</td>
-
-            <td>
-                <input type="number" id="peso">
-            </td>
-
-            <td>Historia Clínica o DNI</td>
-
-            <td>
-                <input type="text" id="dni">
-            </td>
-
-        </tr>
-
-        <tr>
-
-            <td>Establecimiento</td>
-
-            <td colspan="5">
-                <input type="text" id="establecimiento">
-            </td>
-
-        </tr>
-
-        <tr>
-
-            <td>Diagnóstico Principal</td>
-
-            <td colspan="5">
-                <input type="text" id="diagnostico">
-            </td>
-
-        </tr>
-
-    </table>
+</table>
 
     <br>
 
