@@ -23,10 +23,10 @@ export default async function handler(
                     "onboarding@resend.dev",
 
                 to: [
-                    process.env.EMAIL_TO_1,
-                    process.env.EMAIL_TO_2,
-                    process.env.EMAIL_TO_3
-                ],
+  "20204484@aloe.ulima.edu.pe",
+  "puyica280@gmail.com",
+  "mreyna.cqf@gmail.com"
+],
 
                 subject:
                     "Nuevo formulario RAMS",
