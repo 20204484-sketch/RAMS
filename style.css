@@ -1,32 +1,124 @@
-.titulo-seccion{
-    background:#d9edf7;
+body{
+    margin:0;
+    padding:20px;
+    background:#f2f2f2;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.contenedor{
+    max-width:1200px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    box-shadow:0 0 10px rgba(0,0,0,.15);
+}
+
+.encabezado{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.encabezado h2{
+    margin-bottom:10px;
+}
+
+.encabezado h3{
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+.encabezado h4{
+    margin-top:10px;
+}
+
+/* RAMS */
+
+.bloque-rams{
     border:1px solid black;
-    padding:8px;
 }
 
-.paciente-grid{
-    display:grid;
-    grid-template-columns: 220px 1fr 120px 150px;
-    gap:12px;
-    margin-top:15px;
-}
-
-.paciente-grid label{
+.cabecera-seccion{
+    background:#d9edf7;
     font-weight:bold;
-    align-self:center;
+    padding:10px;
+    border-bottom:1px solid black;
 }
 
-.paciente-grid input{
-    width:100%;
-    box-sizing:border-box;
+.fila{
+    display:flex;
+    border-bottom:1px solid black;
+}
+
+.campo{
+    padding:10px;
+    border-right:1px solid black;
+}
+
+.fila .campo:last-child{
+    border-right:none;
+}
+
+.grande{
+    flex:1;
+}
+
+.edad{
+    width:140px;
 }
 
 .sexo{
-    display:flex;
-    gap:20px;
-    align-items:center;
+    width:180px;
 }
 
-.ancho-total{
-    grid-column: span 3;
+.peso{
+    width:180px;
+}
+
+.fila-completa{
+    padding:10px;
+    border-bottom:1px solid black;
+}
+
+.fila-completa:last-child{
+    border-bottom:none;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+input[type="text"],
+input[type="number"]{
+    width:100%;
+    padding:6px;
+    box-sizing:border-box;
+}
+
+.sexo-opciones{
+    display:flex;
+    gap:20px;
+    margin-top:8px;
+}
+
+.sexo-opciones label{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    margin:0;
+}
+
+button{
+    margin-top:20px;
+    background:#005baa;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#004a88;
 }
