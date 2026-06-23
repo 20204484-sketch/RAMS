@@ -1,39 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAMS - Farmacovigilancia</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAMS - Farmacovigilancia</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>SISTEMA PERUANO DE FARMACOVIGILANCIA Y TECNOVIGILANCIA</h1>
+<div class="contenedor">
 
-    <h2>FORMATO DE NOTIFICACIÓN DE SOSPECHAS DE REACCIONES ADVERSAS</h2>
+    <div class="encabezado">
+        <h2>SISTEMA PERUANO DE FARMACOVIGILANCIA Y TECNOVIGILANCIA</h2>
 
-    <section>
-        <h3>A. DATOS DEL PACIENTE</h3>
+        <h3>
+            FORMATO DE NOTIFICACIÓN DE SOSPECHAS DE REACCIONES ADVERSAS
+            A MEDICAMENTOS U OTROS PRODUCTOS FARMACÉUTICOS
+        </h3>
 
-        <label>Nombres o iniciales</label>
-        <input type="text" id="nombre">
+        <h4>CONFIDENCIAL</h4>
+    </div>
 
-        <label>Edad</label>
-        <input type="number" id="edad">
+    <table class="tabla-rams">
 
-        <label>Sexo</label>
-        <select id="sexo">
-            <option>F</option>
-            <option>M</option>
-        </select>
+        <tr>
+            <th colspan="6">
+                A. DATOS DEL PACIENTE
+            </th>
+        </tr>
 
-        <label>Peso (kg)</label>
-        <input type="number" id="peso">
-    </section>
+        <tr>
+            <td>Nombres o Iniciales (*)</td>
+
+            <td colspan="2">
+                <input type="text" id="nombre">
+            </td>
+
+            <td>Edad (*)</td>
+
+            <td>
+                <input type="number" id="edad">
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>Sexo (*)</td>
+
+            <td>
+                <label>
+                    <input type="radio" name="sexo" value="F">
+                    F
+                </label>
+
+                <label>
+                    <input type="radio" name="sexo" value="M">
+                    M
+                </label>
+            </td>
+
+            <td>Peso (Kg)</td>
+
+            <td>
+                <input type="number" id="peso">
+            </td>
+
+            <td>Historia Clínica o DNI</td>
+
+            <td>
+                <input type="text" id="dni">
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>Establecimiento</td>
+
+            <td colspan="5">
+                <input type="text" id="establecimiento">
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>Diagnóstico Principal</td>
+
+            <td colspan="5">
+                <input type="text" id="diagnostico">
+            </td>
+
+        </tr>
+
+    </table>
 
     <br>
 
-    <button>Enviar</button>
+    <button id="btnEnviar">
+        Enviar Formulario
+    </button>
+
+</div>
 
 </body>
 </html>
