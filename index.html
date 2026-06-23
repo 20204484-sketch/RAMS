@@ -1,31 +1,103 @@
-<h3 class="titulo-seccion">
-A. DATOS DEL PACIENTE
-</h3>
+<!DOCTYPE html>
+<html lang="es">
 
-<div class="paciente-grid">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAMS - Farmacovigilancia</title>
 
-    <label>Nombres o Iniciales (*)</label>
-    <input type="text">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <label>Edad (*)</label>
-    <input type="number">
+<body>
 
-    <label>Sexo (*)</label>
-    <div class="sexo">
-        <label><input type="radio" name="sexo"> F</label>
-        <label><input type="radio" name="sexo"> M</label>
+    <div class="contenedor">
+
+        <div class="encabezado">
+            <h2>SISTEMA PERUANO DE FARMACOVIGILANCIA Y TECNOVIGILANCIA</h2>
+
+            <h3>
+                FORMATO DE NOTIFICACIÓN DE SOSPECHAS DE REACCIONES ADVERSAS
+                A MEDICAMENTOS U OTROS PRODUCTOS FARMACÉUTICOS
+            </h3>
+
+            <h4>CONFIDENCIAL</h4>
+        </div>
+
+        <!-- SECCIÓN A -->
+
+        <div class="bloque-rams">
+
+            <div class="cabecera-seccion">
+                A. DATOS DEL PACIENTE
+            </div>
+
+            <div class="fila">
+
+                <div class="campo grande">
+                    <label>Nombres o Iniciales (*)</label>
+                    <input type="text" id="nombre">
+                </div>
+
+                <div class="campo edad">
+                    <label>Edad (*)</label>
+                    <input type="number" id="edad">
+                </div>
+
+                <div class="campo sexo">
+                    <label>Sexo (*)</label>
+
+                    <div class="sexo-opciones">
+                        <label>
+                            <input type="radio" name="sexo" value="F">
+                            F
+                        </label>
+
+                        <label>
+                            <input type="radio" name="sexo" value="M">
+                            M
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="fila">
+
+                <div class="campo peso">
+                    <label>Peso (Kg)</label>
+                    <input type="number" id="peso">
+                </div>
+
+                <div class="campo grande">
+                    <label>Historia Clínica o DNI</label>
+                    <input type="text" id="dni">
+                </div>
+
+            </div>
+
+            <div class="fila-completa">
+
+                <label>Establecimiento</label>
+                <input type="text" id="establecimiento">
+
+            </div>
+
+            <div class="fila-completa">
+
+                <label>Diagnóstico Principal</label>
+                <input type="text" id="diagnostico">
+
+            </div>
+
+        </div>
+
+        <button id="btnEnviar">
+            Enviar Formulario
+        </button>
+
     </div>
 
-    <label>Peso (Kg)</label>
-    <input type="number">
+</body>
 
-    <label>Historia Clínica o DNI</label>
-    <input type="text">
-
-    <label>Establecimiento</label>
-    <input class="ancho-total" type="text">
-
-    <label>Diagnóstico Principal</label>
-    <input class="ancho-total" type="text">
-
-</div>
+</html>
