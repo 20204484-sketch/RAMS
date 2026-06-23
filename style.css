@@ -304,3 +304,6 @@ input[type="email"]{
     padding:4px;
     box-sizing:border-box;
 }
+*{
+    font-family: Arial, sans-serif;
+}
