@@ -144,12 +144,7 @@ console.log("PDF URL:", pdfUrl);
                 alert("Formulario enviado correctamente");
             } 
 
-        } catch (error) {
-
-            console.error(error);
-            alert("Error de conexión");
-
-        }
+        } 
 
     });
 
