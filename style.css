@@ -149,7 +149,30 @@ textarea{
     padding:12px;
     border-top:1px solid black;
 }
+.subtitulo-rams{
+    padding:10px;
+    font-weight:bold;
+    border-top:1px solid black;
+    background:#f7f7f7;
+}
 
+.bloque-checks{
+    padding:12px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    border-top:1px solid black;
+}
+
+.bloque-checks label{
+    font-weight:normal;
+}
+
+textarea{
+    width:100%;
+    box-sizing:border-box;
+    padding:8px;
+}
 .fila-gravedad span{
     font-weight:bold;
 }
