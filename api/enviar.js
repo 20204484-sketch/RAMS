@@ -1,35 +1,30 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export default async function handler(req, res) {
 
     try {
 
-        const { contenido } = req.body;
+        console.log("API ejecutada");
+        console.log("API KEY existe:", !!process.env.RESEND_API_KEY);
+        console.log("EMAIL 1:", process.env.EMAIL_TO_1);
+        console.log("EMAIL 2:", process.env.EMAIL_TO_2);
 
-        const respuesta = await resend.emails.send({
+        const resend = new Resend(process.env.RESEND_API_KEY);
 
+        const resultado = await resend.emails.send({
             from: "onboarding@resend.dev",
-
-            to: [
-                process.env.EMAIL_TO_1,
-                process.env.EMAIL_TO_2
-            ],
-
-            subject: "Nuevo formulario RAMS",
-
-            html: `
-                <h2>Nuevo formulario recibido</h2>
-                <pre>${contenido}</pre>
-            `
+            to: [process.env.EMAIL_TO_1],
+            subject: "Prueba Resend RAMS",
+            html: "<h1>Prueba de correo</h1>"
         });
 
-        return res.status(200).json(respuesta);
+        console.log("Resultado:", resultado);
+
+        return res.status(200).json(resultado);
 
     } catch (error) {
 
-        console.error(error);
+        console.error("ERROR RESEND:", error);
 
         return res.status(500).json({
             error: error.message
