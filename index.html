@@ -11,194 +11,285 @@
 
 <body>
 
-    <div class="contenedor">
+<div class="contenedor">
 
-        <div class="encabezado">
-            <h2>SISTEMA PERUANO DE FARMACOVIGILANCIA Y TECNOVIGILANCIA</h2>
+    <div class="encabezado">
 
-            <h3>
-                FORMATO DE NOTIFICACIÓN DE SOSPECHAS DE REACCIONES ADVERSAS
-                A MEDICAMENTOS U OTROS PRODUCTOS FARMACÉUTICOS
-            </h3>
+        <h2>
+            SISTEMA PERUANO DE FARMACOVIGILANCIA Y TECNOVIGILANCIA
+        </h2>
 
-            <h4>CONFIDENCIAL</h4>
-        </div>
+        <h3>
+            FORMATO DE NOTIFICACIÓN DE SOSPECHAS DE REACCIONES ADVERSAS
+            A MEDICAMENTOS U OTROS PRODUCTOS FARMACÉUTICOS
+        </h3>
 
-        <!-- SECCIÓN A -->
-
-        <div class="bloque-rams">
-
-            <div class="cabecera-seccion">
-                A. DATOS DEL PACIENTE
-            </div>
-
-            <div class="fila">
-
-                <div class="campo grande">
-                    <label>Nombres o Iniciales (*)</label>
-                    <input type="text" id="nombre">
-                </div>
-
-                <div class="campo edad">
-                    <label>Edad (*)</label>
-                    <input type="number" id="edad">
-                </div>
-
-                <div class="campo sexo">
-                    <label>Sexo (*)</label>
-
-                    <div class="sexo-opciones">
-                        <label>
-                            <input type="radio" name="sexo" value="F">
-                            F
-                        </label>
-
-                        <label>
-                            <input type="radio" name="sexo" value="M">
-                            M
-                        </label>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="fila">
-
-                <div class="campo peso">
-                    <label>Peso (Kg)</label>
-                    <input type="number" id="peso">
-                </div>
-
-                <div class="campo grande">
-                    <label>Historia Clínica o DNI</label>
-                    <input type="text" id="dni">
-                </div>
-
-            </div>
-
-            <div class="fila-completa">
-
-                <label>Establecimiento</label>
-                <input type="text" id="establecimiento">
-
-            </div>
-
-            <div class="fila-completa">
-
-                <label>Diagnóstico Principal</label>
-                <input type="text" id="diagnostico">
-
-            </div>
-
-        </div>
-        <!-- SECCIÓN B -->
-
-<div class="bloque-rams">
-
-    <div class="cabecera-seccion">
-        B. DATOS DE LA SOSPECHA DE REACCIÓN ADVERSA
-    </div>
-
-    <div class="fila-opciones">
-
-        <label>
-            <input type="checkbox" id="reaccion">
-            Reacción Adversa
-        </label>
-
-        <label>
-            <input type="checkbox" id="error">
-            Error de Medicación
-        </label>
-
-        <label>
-            <input type="checkbox" id="calidad">
-            Problema de Calidad
-        </label>
-
-        <label>
-            <input type="checkbox" id="otro">
-            Otro
-        </label>
+        <h4>CONFIDENCIAL</h4>
 
     </div>
 
-    <div class="fila-completa">
+    <!-- ================================= -->
+    <!-- A. DATOS DEL PACIENTE             -->
+    <!-- ================================= -->
 
-        <label>Descripción de la reacción adversa</label>
+    <div class="bloque-rams">
 
-        <textarea id="descripcion" rows="6"></textarea>
-
-    </div>
-
-    <div class="fila">
-
-        <div class="campo">
-            <label>Fecha de inicio</label>
-            <input type="date" id="fechaInicio">
+        <div class="cabecera-seccion">
+            A. DATOS DEL PACIENTE
         </div>
 
-        <div class="campo">
-            <label>Fecha final</label>
-            <input type="date" id="fechaFin">
+        <div class="fila">
+
+            <div class="campo grande">
+                <label>Nombres o Iniciales (*)</label>
+                <input type="text" id="nombre">
+            </div>
+
+            <div class="campo edad">
+                <label>Edad (*)</label>
+                <input type="number" id="edad">
+            </div>
+
+            <div class="campo sexo">
+                <label>Sexo (*)</label>
+
+                <div class="sexo-opciones">
+
+                    <label>
+                        <input type="radio" name="sexo">
+                        F
+                    </label>
+
+                    <label>
+                        <input type="radio" name="sexo">
+                        M
+                    </label>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="fila">
+
+            <div class="campo peso">
+                <label>Peso (Kg)</label>
+                <input type="number">
+            </div>
+
+            <div class="campo grande">
+                <label>Historia Clínica o DNI</label>
+                <input type="text">
+            </div>
+
+        </div>
+
+        <div class="fila-completa">
+
+            <label>Establecimiento</label>
+            <input type="text">
+
+        </div>
+
+        <div class="fila-completa">
+
+            <label>Diagnóstico Principal o CIE 10</label>
+            <input type="text">
+
         </div>
 
     </div>
 
-    <div class="fila-gravedad">
+    <!-- ================================= -->
+    <!-- B. REACCIÓN ADVERSA               -->
+    <!-- ================================= -->
 
-        <span>Gravedad:</span>
+    <div class="bloque-rams">
 
-        <label>
-            <input type="radio" name="gravedad" value="leve">
-            Leve
-        </label>
+        <div class="cabecera-seccion">
+            B. REACCIONES ADVERSAS SOSPECHADAS
+        </div>
 
-        <label>
-            <input type="radio" name="gravedad" value="moderada">
-            Moderada
-        </label>
+        <div class="fila-opciones">
 
-        <label>
-            <input type="radio" name="gravedad" value="grave">
-            Grave
-        </label>
+            <label>
+                <input type="checkbox">
+                Reacción Adversa
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Error de Medicación
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Problema de Calidad
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Otro
+            </label>
+
+        </div>
+
+        <div class="fila-completa">
+
+            <label>
+                Descripción de la reacción adversa
+            </label>
+
+            <textarea rows="6"></textarea>
+
+        </div>
+
+        <div class="fila">
+
+            <div class="campo">
+
+                <label>
+                    Fecha de inicio de RAM
+                </label>
+
+                <input type="date">
+
+            </div>
+
+            <div class="campo">
+
+                <label>
+                    Fecha final de RAM
+                </label>
+
+                <input type="date">
+
+            </div>
+
+        </div>
+
+        <div class="subtitulo-rams">
+            Gravedad de la RAM
+        </div>
+
+        <div class="bloque-checks">
+
+            <label>
+                <input type="radio" name="gravedad">
+                Leve
+            </label>
+
+            <label>
+                <input type="radio" name="gravedad">
+                Moderada
+            </label>
+
+            <label>
+                <input type="radio" name="gravedad">
+                Grave
+            </label>
+
+        </div>
+
+        <div class="subtitulo-rams">
+            Solo para RAM grave (Marcar con X)
+        </div>
+
+        <div class="bloque-checks">
+
+            <label>
+                <input type="checkbox">
+                Muerte
+            </label>
+
+            <label>
+                Fecha:
+                <input type="date">
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Puso en grave riesgo la vida del paciente
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Produjo o prolongó su hospitalización
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Produjo discapacidad/incapacidad
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Produjo anomalía congénita
+            </label>
+
+        </div>
+
+        <div class="subtitulo-rams">
+            Desenlace
+        </div>
+
+        <div class="bloque-checks">
+
+            <label>
+                <input type="radio" name="desenlace">
+                Recuperado
+            </label>
+
+            <label>
+                <input type="radio" name="desenlace">
+                Recuperado con secuela
+            </label>
+
+            <label>
+                <input type="radio" name="desenlace">
+                No recuperado
+            </label>
+
+            <label>
+                <input type="radio" name="desenlace">
+                Mortal
+            </label>
+
+            <label>
+                <input type="radio" name="desenlace">
+                Desconocido
+            </label>
+
+        </div>
+
+        <div class="fila-completa">
+
+            <label>
+                Resultados relevantes de exámenes de laboratorio
+                (incluir fechas)
+            </label>
+
+            <textarea rows="5"></textarea>
+
+        </div>
+
+        <div class="fila-completa">
+
+            <label>
+                Otros datos importantes de la historia clínica
+            </label>
+
+            <textarea rows="5"></textarea>
+
+        </div>
 
     </div>
 
-    <div class="fila-gravedad">
-
-        <span>Desenlace:</span>
-
-        <label>
-            <input type="radio" name="desenlace" value="recuperado">
-            Recuperado
-        </label>
-
-        <label>
-            <input type="radio" name="desenlace" value="recuperandose">
-            Recuperándose
-        </label>
-
-        <label>
-            <input type="radio" name="desenlace" value="no_recuperado">
-            No recuperado
-        </label>
-
-        <label>
-            <input type="radio" name="desenlace" value="muerte">
-            Muerte
-        </label>
-
-    </div>
+    <button id="btnEnviar">
+        Enviar Formulario
+    </button>
 
 </div>
-
-        <button id="btnEnviar">
-            Enviar Formulario
-        </button>
-
-    </div>
 
 </body>
 
