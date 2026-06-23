@@ -115,12 +115,11 @@ console.log(
     pdfUrl
 );
 
-            console.log("PDF generado:", !!pdfBase64);
-console.log("Longitud:", pdfBase64.length);
+            console.log("PDF generado:", !!pdfBlob);
 
 console.log(
     "Tamaño PDF (KB):",
-    Math.round(pdfBase64.length / 1024)
+    Math.round(pdfBlob.size / 1024)
 );
             // =========================
             // ENVIAR DATOS
