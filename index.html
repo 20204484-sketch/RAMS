@@ -284,6 +284,101 @@
         </div>
 
     </div>
+    <!-- ================================= -->
+<!-- C. MEDICAMENTO SOSPECHOSO         -->
+<!-- ================================= -->
+
+<div class="bloque-rams">
+
+    <div class="cabecera-seccion">
+        C. MEDICAMENTO(S) U OTRO(S) PRODUCTO(S) FARMACÉUTICO(S) SOSPECHOSO(S)
+    </div>
+
+    <div class="tabla-contenedor">
+
+        <table class="tabla-medicamentos">
+
+            <thead>
+                <tr>
+                    <th>Nombre Comercial y Genérico</th>
+                    <th>Laboratorio</th>
+                    <th>Lote</th>
+                    <th>Dosis / Frecuencia</th>
+                    <th>Vía</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Final</th>
+                    <th>Motivo de Prescripción o CIE10</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="date"></td>
+                    <td><input type="date"></td>
+                    <td><input type="text"></td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="subtitulo-rams">
+        Para conocer el efecto de la suspensión y reexposición
+    </div>
+
+    <div class="fila-opciones">
+
+        <label>
+            Suspensión:
+            <select>
+                <option></option>
+                <option>Sí</option>
+                <option>No</option>
+                <option>No aplica</option>
+            </select>
+        </label>
+
+        <label>
+            Reexposición:
+            <select>
+                <option></option>
+                <option>Sí</option>
+                <option>No</option>
+                <option>No aplica</option>
+            </select>
+        </label>
+
+    </div>
+
+    <div class="fila-completa">
+
+        <label>
+            El paciente recibió tratamiento para la reacción adversa
+        </label>
+
+        <textarea rows="3"></textarea>
+
+    </div>
+
+    <div class="fila-completa">
+
+        <label>
+            En caso de sospecha de problemas de calidad
+        </label>
+
+        <textarea rows="3"></textarea>
+
+    </div>
+
+</div>
 
     <button id="btnEnviar">
         Enviar Formulario
