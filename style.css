@@ -308,3 +308,10 @@ input[type="email"]{
     font-family: Arial, sans-serif;
     font-size: 12px;
 }
+body {
+    overflow-x: auto;
+}
+
+.contenedor {
+    min-width: 1100px;
+}
