@@ -142,9 +142,7 @@ Edad: ${edad}
 console.log("PDF URL:", pdfUrl);
             if (respuesta.ok) {
                 alert("Formulario enviado correctamente");
-            } else {
-                alert("Error al enviar");
-            }
+            } 
 
         } catch (error) {
 
