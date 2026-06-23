@@ -1,3 +1,11 @@
+const SUPABASE_URL = "https://hrzojutcdphellriqjas.supabase.co";
+
+const SUPABASE_ANON_KEY = "sb_publishable_M_LqnyjOBZzPRxfsJ_5khg_wpUu1DZN";
+
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+);
 document.addEventListener("DOMContentLoaded", () => {
 
     const boton = document.getElementById("btnEnviar");
@@ -59,9 +67,53 @@ while (heightLeft > 0) {
 
     heightLeft -= pageHeight;
 }
+            pdf.save("Formulario_RAMS.pdf");
 
-pdf.save("Formulario_RAMS.pdf");
-            const pdfBase64 = pdf.output("datauristring").split(",")[1];
+const pdfBlob = pdf.output("blob");
+
+const nombreArchivo =
+    `RAMS_${Date.now()}.pdf`;
+
+const { error: uploadError } =
+    await supabaseClient.storage
+        .from("formularios")
+        .upload(
+            nombreArchivo,
+            pdfBlob,
+            {
+                contentType:
+                    "application/pdf"
+            }
+        );
+
+if (uploadError) {
+
+    console.error(uploadError);
+
+    alert(
+        "Error al subir PDF a Supabase"
+    );
+
+    return;
+}
+
+const {
+    data: publicUrlData
+} =
+    supabaseClient.storage
+        .from("formularios")
+        .getPublicUrl(
+            nombreArchivo
+        );
+
+const pdfUrl =
+    publicUrlData.publicUrl;
+
+console.log(
+    "URL PDF:",
+    pdfUrl
+);
+
             console.log("PDF generado:", !!pdfBase64);
 console.log("Longitud:", pdfBase64.length);
 
@@ -92,7 +144,7 @@ Edad: ${edad}
                     },
                    body: JSON.stringify({
     contenido,
-                       pdfBase64
+    pdfUrl
 })
                 }
             );
