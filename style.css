@@ -38,12 +38,12 @@ body{
 }
 
 .cabecera-seccion{
-    background:#d9edf7;
+    background:#4a4a4a;
+    color:white;
     font-weight:bold;
     padding:10px;
-    border-bottom:1px solid black;
+    border:1px solid black;
 }
-
 .fila{
     display:flex;
     border-bottom:1px solid black;
