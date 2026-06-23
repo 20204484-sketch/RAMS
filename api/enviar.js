@@ -1,53 +1,64 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend =
+    new Resend(
+        process.env.RESEND_API_KEY
+    );
 
-export default async function handler(req, res) {
+export default async function handler(
+    req,
+    res
+) {
 
     try {
 
-        const { pdfBase64 } = req.body;
+        const {
+            pdfUrl
+        } = req.body || {};
 
-        console.log("BODY:", req.body);
+        const respuesta =
+            await resend.emails.send({
 
-const { pdfBase64 } = req.body || {};
+                from:
+                    "onboarding@resend.dev",
 
-console.log(
-  "PDF tamaño KB:",
-  pdfBase64
-    ? Math.round(pdfBase64.length / 1024)
-    : "NO RECIBIDO"
-);
+                to: [
+                    process.env.EMAIL_TO_1,
+                    process.env.EMAIL_TO_2,
+                    process.env.EMAIL_TO_3
+                ],
 
-        const respuesta = await resend.emails.send({
+                subject:
+                    "Nuevo formulario RAMS",
 
-            from: "onboarding@resend.dev",
+                html: `
+                    <h2>
+                        Nuevo formulario RAMS
+                    </h2>
 
-            to: [
-                process.env.EMAIL_TO_1,
-                process.env.EMAIL_TO_2
-            ],
+                    <p>
+                        Descargar PDF:
+                    </p>
 
-            subject: "Formulario RAMS",
+                    <a href="${pdfUrl}">
+                        Abrir formulario
+                    </a>
+                `
+            });
 
-            html: "<h2>Se adjunta el formulario RAMS en PDF</h2>",
-
-            attachments: [
-                {
-                    filename: "Formulario_RAMS.pdf",
-                    content: pdfBase64
-                }
-            ]
-        });
-
-        return res.status(200).json(respuesta);
+        return res
+            .status(200)
+            .json(respuesta);
 
     } catch (error) {
 
         console.error(error);
 
-        return res.status(500).json({
-            error: error.message
-        });
+        return res
+            .status(500)
+            .json({
+                error:
+                    error.message
+            });
     }
 }
