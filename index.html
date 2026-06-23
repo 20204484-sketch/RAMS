@@ -1,88 +1,31 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RAMS - Farmacovigilancia</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<h3 class="titulo-seccion">
+A. DATOS DEL PACIENTE
+</h3>
 
-<body>
+<div class="paciente-grid">
 
-<div class="contenedor">
+    <label>Nombres o Iniciales (*)</label>
+    <input type="text">
 
-    <div class="encabezado">
-        <h2>SISTEMA PERUANO DE FARMACOVIGILANCIA Y TECNOVIGILANCIA</h2>
+    <label>Edad (*)</label>
+    <input type="number">
 
-        <h3>
-            FORMATO DE NOTIFICACIÓN DE SOSPECHAS DE REACCIONES ADVERSAS
-            A MEDICAMENTOS U OTROS PRODUCTOS FARMACÉUTICOS
-        </h3>
-
-        <h4>CONFIDENCIAL</h4>
+    <label>Sexo (*)</label>
+    <div class="sexo">
+        <label><input type="radio" name="sexo"> F</label>
+        <label><input type="radio" name="sexo"> M</label>
     </div>
 
-    <table class="tabla-rams">
+    <label>Peso (Kg)</label>
+    <input type="number">
 
-    <tr>
-        <th colspan="8">
-            A. DATOS DEL PACIENTE
-        </th>
-    </tr>
+    <label>Historia Clínica o DNI</label>
+    <input type="text">
 
-    <tr>
-        <td class="titulo">Nombres o iniciales (*)</td>
-        <td colspan="3">
-            <input type="text" id="nombre">
-        </td>
+    <label>Establecimiento</label>
+    <input class="ancho-total" type="text">
 
-        <td class="titulo">Edad (*)</td>
-        <td>
-            <input type="number" id="edad">
-        </td>
-
-        <td class="titulo">Sexo (*)</td>
-        <td>
-            <label><input type="radio" name="sexo" value="F"> F</label>
-            <label><input type="radio" name="sexo" value="M"> M</label>
-        </td>
-    </tr>
-
-    <tr>
-        <td class="titulo">Peso (Kg)</td>
-        <td>
-            <input type="number" id="peso">
-        </td>
-
-        <td class="titulo">Historia Clínica o DNI</td>
-        <td colspan="5">
-            <input type="text" id="dni">
-        </td>
-    </tr>
-
-    <tr>
-        <td class="titulo">Establecimiento</td>
-        <td colspan="7">
-            <input type="text" id="establecimiento">
-        </td>
-    </tr>
-
-    <tr>
-        <td class="titulo">Diagnóstico Principal</td>
-        <td colspan="7">
-            <input type="text" id="diagnostico">
-        </td>
-    </tr>
-
-</table>
-
-    <br>
-
-    <button id="btnEnviar">
-        Enviar Formulario
-    </button>
+    <label>Diagnóstico Principal</label>
+    <input class="ancho-total" type="text">
 
 </div>
-
-</body>
-</html>
