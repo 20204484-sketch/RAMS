@@ -176,3 +176,34 @@ textarea{
 .fila-gravedad span{
     font-weight:bold;
 }
+.tabla-contenedor{
+    overflow-x:auto;
+}
+
+.tabla-medicamentos{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.tabla-medicamentos th{
+    background:#f2f2f2;
+    border:1px solid black;
+    padding:8px;
+    font-size:13px;
+}
+
+.tabla-medicamentos td{
+    border:1px solid black;
+    padding:4px;
+}
+
+.tabla-medicamentos input{
+    width:100%;
+    box-sizing:border-box;
+    border:none;
+    padding:5px;
+}
+
+select{
+    padding:5px;
+}
