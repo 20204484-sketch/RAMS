@@ -122,3 +122,34 @@ button{
 button:hover{
     background:#004a88;
 }
+.fila-opciones{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    padding:12px;
+    border-bottom:1px solid black;
+}
+
+.fila-opciones label{
+    margin:0;
+    font-weight:normal;
+}
+
+textarea{
+    width:100%;
+    box-sizing:border-box;
+    resize:vertical;
+    padding:8px;
+}
+
+.fila-gravedad{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:12px;
+    border-top:1px solid black;
+}
+
+.fila-gravedad span{
+    font-weight:bold;
+}
