@@ -135,20 +135,11 @@ Nombre: ${nombre}
 Edad: ${edad}
 `;
 
-            const respuesta = await fetch(
-                "https://rams-nine-smoky.vercel.app/api/enviar",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                   body: JSON.stringify({
-    contenido,
-    pdfUrl
-})
-                }
-            );
+            alert(
+    "Formulario enviado correctamente y almacenado en Supabase."
+);
 
+console.log("PDF URL:", pdfUrl);
             if (respuesta.ok) {
                 alert("Formulario enviado correctamente");
             } else {
