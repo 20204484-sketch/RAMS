@@ -62,6 +62,11 @@ while (heightLeft > 0) {
 
 pdf.save("Formulario_RAMS.pdf");
             const pdfBase64 = pdf.output("datauristring").split(",")[1];
+
+console.log(
+    "Tamaño PDF (KB):",
+    Math.round(pdfBase64.length / 1024)
+);
             // =========================
             // ENVIAR DATOS
             // =========================
