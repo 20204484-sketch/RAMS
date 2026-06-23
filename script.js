@@ -61,6 +61,8 @@ while (heightLeft > 0) {
 }
 
 pdf.save("Formulario_RAMS.pdf");
+            const pdfBase64 = pdf.output("datauristring")
+    .split(",")[1];
             // =========================
             // ENVIAR DATOS
             // =========================
@@ -82,9 +84,9 @@ Edad: ${edad}
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({
-                        contenido
-                    })
+                   body: JSON.stringify({
+    contenido
+})
                 }
             );
 
