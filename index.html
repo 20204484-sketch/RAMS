@@ -91,6 +91,108 @@
             </div>
 
         </div>
+        <!-- SECCIÓN B -->
+
+<div class="bloque-rams">
+
+    <div class="cabecera-seccion">
+        B. DATOS DE LA SOSPECHA DE REACCIÓN ADVERSA
+    </div>
+
+    <div class="fila-opciones">
+
+        <label>
+            <input type="checkbox" id="reaccion">
+            Reacción Adversa
+        </label>
+
+        <label>
+            <input type="checkbox" id="error">
+            Error de Medicación
+        </label>
+
+        <label>
+            <input type="checkbox" id="calidad">
+            Problema de Calidad
+        </label>
+
+        <label>
+            <input type="checkbox" id="otro">
+            Otro
+        </label>
+
+    </div>
+
+    <div class="fila-completa">
+
+        <label>Descripción de la reacción adversa</label>
+
+        <textarea id="descripcion" rows="6"></textarea>
+
+    </div>
+
+    <div class="fila">
+
+        <div class="campo">
+            <label>Fecha de inicio</label>
+            <input type="date" id="fechaInicio">
+        </div>
+
+        <div class="campo">
+            <label>Fecha final</label>
+            <input type="date" id="fechaFin">
+        </div>
+
+    </div>
+
+    <div class="fila-gravedad">
+
+        <span>Gravedad:</span>
+
+        <label>
+            <input type="radio" name="gravedad" value="leve">
+            Leve
+        </label>
+
+        <label>
+            <input type="radio" name="gravedad" value="moderada">
+            Moderada
+        </label>
+
+        <label>
+            <input type="radio" name="gravedad" value="grave">
+            Grave
+        </label>
+
+    </div>
+
+    <div class="fila-gravedad">
+
+        <span>Desenlace:</span>
+
+        <label>
+            <input type="radio" name="desenlace" value="recuperado">
+            Recuperado
+        </label>
+
+        <label>
+            <input type="radio" name="desenlace" value="recuperandose">
+            Recuperándose
+        </label>
+
+        <label>
+            <input type="radio" name="desenlace" value="no_recuperado">
+            No recuperado
+        </label>
+
+        <label>
+            <input type="radio" name="desenlace" value="muerte">
+            Muerte
+        </label>
+
+    </div>
+
+</div>
 
         <button id="btnEnviar">
             Enviar Formulario
