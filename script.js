@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const elemento = document.getElementById("paginaCompleta");
 
 const canvas = await html2canvas(elemento, {
-    scale: 2,
+    scale: 1,
     useCORS: true
 });
 
