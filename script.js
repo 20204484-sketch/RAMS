@@ -1,5 +1,5 @@
 const SUPABASE_URL = "https://hrzojutcdphellriqjas.supabase.co";
-const SUPABASE_ANON_KEY = "TU_SUPABASE_ANON_KEY";
+const SUPABASE_ANON_KEY = "AQUI_TU_SUPABASE_ANON_KEY";
 
 const supabaseClient = supabase.createClient(
     SUPABASE_URL,
@@ -75,35 +75,23 @@ document.addEventListener("DOMContentLoaded", () => {
             // =========================
 
             const pdfBlob = pdf.output("blob");
-
             const nombreArchivo = `RAMS_${Date.now()}.pdf`;
 
-            const { error: uploadError } =
-                await supabaseClient.storage
-                    .from("formularios")
-                    .upload(
-                        nombreArchivo,
-                        pdfBlob,
-                        {
-                            contentType: "application/pdf"
-                        }
-                    );
+            const { error: uploadError } = await supabaseClient.storage
+                .from("formularios")
+                .upload(nombreArchivo, pdfBlob, {
+                    contentType: "application/pdf"
+                });
 
             if (uploadError) {
                 console.error("ERROR SUPABASE:", uploadError);
-
-                alert(
-                    "Error al subir PDF a Supabase: " +
-                    uploadError.message
-                );
-
+                alert("Error al subir PDF a Supabase: " + uploadError.message);
                 return;
             }
 
-            const { data: publicUrlData } =
-                supabaseClient.storage
-                    .from("formularios")
-                    .getPublicUrl(nombreArchivo);
+            const { data: publicUrlData } = supabaseClient.storage
+                .from("formularios")
+                .getPublicUrl(nombreArchivo);
 
             const pdfUrl = publicUrlData.publicUrl;
 
@@ -127,27 +115,17 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             const data = await respuesta.json();
-
             console.log("RESPUESTA API:", data);
 
             if (respuesta.ok) {
                 alert("Formulario enviado correctamente");
             } else {
-                alert(
-                    "Error al enviar correo: " +
-                    (data.error || "desconocido")
-                );
+                alert("Error al enviar correo: " + (data.error || "desconocido"));
             }
 
         } catch (error) {
-
             console.error("ERROR GENERAL:", error);
-
-            alert(
-                "Error: " +
-                (error.message || "desconocido")
-            );
-
+            alert("Error: " + (error.message || "desconocido"));
         }
 
     });
