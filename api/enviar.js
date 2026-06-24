@@ -4,6 +4,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
 
+    // Permitir POST solamente
     if (req.method !== "POST") {
         return res.status(405).json({
             error: "Método no permitido"
@@ -11,6 +12,8 @@ export default async function handler(req, res) {
     }
 
     try {
+
+        console.log("BODY RECIBIDO:", req.body);
 
         const { pdfUrl } = req.body || {};
 
@@ -35,6 +38,8 @@ export default async function handler(req, res) {
             `
         });
 
+        console.log("RESPUESTA RESEND:", respuesta);
+
         return res.status(200).json({
             ok: true,
             respuesta
@@ -42,10 +47,10 @@ export default async function handler(req, res) {
 
     } catch (error) {
 
-        console.error("ERROR RESEND:", error);
+        console.error("ERROR EN /api/enviar:", error);
 
         return res.status(500).json({
-            error: error.message
+            error: error.message || "Error interno"
         });
     }
 }
