@@ -101,15 +101,13 @@ document.addEventListener("DOMContentLoaded", () => {
             // ENVIAR URL DEL PDF A VERCEL
             // =========================
 
-            const respuesta = await fetch(
-                "https://rams-nine-smoky.vercel.app/api/enviar",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        pdfUrl
+            const respuesta = await fetch("/api/enviar", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        pdfUrl
                     })
                 }
             );
