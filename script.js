@@ -1,5 +1,5 @@
 const SUPABASE_URL = "https://hrzojutcdphellriqjas.supabase.co";
-const SUPABASE_ANON_KEY = "AQUI_TU_SUPABASE_ANON_KEY";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhyem9qdXRjZHBoZWxscmlxamFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMjk5MDksImV4cCI6MjA5NzgwNTkwOX0.a8jcXNAZwyxret_s6DUjh81Aq9CVZAG2r-plFq4Ub4g";
 
 const supabaseClient = supabase.createClient(
     SUPABASE_URL,
