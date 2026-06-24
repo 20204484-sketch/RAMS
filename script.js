@@ -101,30 +101,28 @@ document.addEventListener("DOMContentLoaded", () => {
             // ENVIAR URL DEL PDF A VERCEL
             // =========================
 
-            const respuesta = await fetch("/api/enviar", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        pdfUrl
-                    })
-                }
-            );
+     const respuesta = await fetch(
+    "https://rams-nine-smoky.vercel.app/api/enviar",
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            pdfUrl
+        })
+    }
+);
 
-            const data = await respuesta.json();
-            console.log("RESPUESTA API:", data);
+const textoRespuesta = await respuesta.text();
 
-            if (respuesta.ok) {
-                alert("Formulario enviado correctamente");
-            } else {
-                alert("Error al enviar correo: " + (data.error || "desconocido"));
-            }
+console.log("Respuesta servidor:", textoRespuesta);
 
-        } catch (error) {
-            console.error("ERROR GENERAL:", error);
-            alert("Error: " + (error.message || "desconocido"));
-        }
+if (respuesta.ok) {
+    alert("Formulario enviado correctamente");
+} else {
+    alert("Error al enviar correo: " + textoRespuesta);
+}       
 
     });
 
