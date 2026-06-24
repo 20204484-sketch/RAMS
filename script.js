@@ -1,11 +1,11 @@
 const SUPABASE_URL = "https://hrzojutcdphellriqjas.supabase.co";
-
-const SUPABASE_ANON_KEY = "sb_publishable_M_LqnyjOBZzPRxfsJ_5khg_wpUu1DZN";
+const SUPABASE_ANON_KEY = "TU_SUPABASE_ANON_KEY";
 
 const supabaseClient = supabase.createClient(
     SUPABASE_URL,
     SUPABASE_ANON_KEY
 );
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const boton = document.getElementById("btnEnviar");
@@ -18,133 +18,137 @@ document.addEventListener("DOMContentLoaded", () => {
             // GENERAR PDF
             // =========================
 
-           const { jsPDF } = window.jspdf;
+            const { jsPDF } = window.jspdf;
+            const elemento = document.getElementById("paginaCompleta");
 
-const elemento = document.getElementById("paginaCompleta");
+            const canvas = await html2canvas(elemento, {
+                scale: 1,
+                useCORS: true
+            });
 
-const canvas = await html2canvas(elemento, {
-    scale: 1,
-    useCORS: true
-});
+            const imgData = canvas.toDataURL("image/png");
+            const pdf = new jsPDF("p", "mm", "a4");
 
-const imgData = canvas.toDataURL("image/png");
+            const imgWidth = 210;
+            const pageHeight = 297;
+            const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-const pdf = new jsPDF("p", "mm", "a4");
+            let heightLeft = imgHeight;
+            let position = 0;
 
-const imgWidth = 210;
-const pageHeight = 297;
+            pdf.addImage(
+                imgData,
+                "PNG",
+                0,
+                position,
+                imgWidth,
+                imgHeight
+            );
 
-const imgHeight = (canvas.height * imgWidth) / canvas.width;
+            heightLeft -= pageHeight;
 
-let heightLeft = imgHeight;
-let position = 0;
+            while (heightLeft > 0) {
+                position = heightLeft - imgHeight;
 
-pdf.addImage(
-    imgData,
-    "PNG",
-    0,
-    position,
-    imgWidth,
-    imgHeight
-);
+                pdf.addPage();
 
-heightLeft -= pageHeight;
+                pdf.addImage(
+                    imgData,
+                    "PNG",
+                    0,
+                    position,
+                    imgWidth,
+                    imgHeight
+                );
 
-while (heightLeft > 0) {
+                heightLeft -= pageHeight;
+            }
 
-    position = heightLeft - imgHeight;
+            // =========================
+            // GUARDAR PDF LOCALMENTE
+            // =========================
 
-    pdf.addPage();
-
-    pdf.addImage(
-        imgData,
-        "PNG",
-        0,
-        position,
-        imgWidth,
-        imgHeight
-    );
-
-    heightLeft -= pageHeight;
-}
             pdf.save("Formulario_RAMS.pdf");
 
-const pdfBlob = pdf.output("blob");
+            // =========================
+            // SUBIR PDF A SUPABASE
+            // =========================
 
-const nombreArchivo =
-    `RAMS_${Date.now()}.pdf`;
+            const pdfBlob = pdf.output("blob");
 
-const { error: uploadError } =
-    await supabaseClient.storage
-        .from("formularios")
-        .upload(
-            nombreArchivo,
-            pdfBlob,
-            {
-                contentType:
-                    "application/pdf"
+            const nombreArchivo = `RAMS_${Date.now()}.pdf`;
+
+            const { error: uploadError } =
+                await supabaseClient.storage
+                    .from("formularios")
+                    .upload(
+                        nombreArchivo,
+                        pdfBlob,
+                        {
+                            contentType: "application/pdf"
+                        }
+                    );
+
+            if (uploadError) {
+                console.error("ERROR SUPABASE:", uploadError);
+
+                alert(
+                    "Error al subir PDF a Supabase: " +
+                    uploadError.message
+                );
+
+                return;
             }
-        );
 
-if (uploadError) {
+            const { data: publicUrlData } =
+                supabaseClient.storage
+                    .from("formularios")
+                    .getPublicUrl(nombreArchivo);
 
-    console.error(uploadError);
+            const pdfUrl = publicUrlData.publicUrl;
 
-    alert(
-        "Error Supabase: " +
-        uploadError.message
-    );
+            console.log("PDF URL:", pdfUrl);
 
-    return;
-}
-
-const {
-    data: publicUrlData
-} =
-    supabaseClient.storage
-        .from("formularios")
-        .getPublicUrl(
-            nombreArchivo
-        );
-
-const pdfUrl =
-    publicUrlData.publicUrl;
-
-console.log(
-    "URL PDF:",
-    pdfUrl
-);
-
-            console.log("PDF generado:", !!pdfBlob);
-
-console.log(
-    "Tamaño PDF (KB):",
-    Math.round(pdfBlob.size / 1024)
-);
             // =========================
-            // ENVIAR DATOS
+            // ENVIAR URL DEL PDF A VERCEL
             // =========================
 
-            const nombre = document.getElementById("nombre")?.value || "";
-            const edad = document.getElementById("edad")?.value || "";
+            const respuesta = await fetch(
+                "https://rams-nine-smoky.vercel.app/api/enviar",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        pdfUrl
+                    })
+                }
+            );
 
-            const contenido = `
-FORMULARIO RAMS
+            const data = await respuesta.json();
 
-Nombre: ${nombre}
-Edad: ${edad}
-`;
+            console.log("RESPUESTA API:", data);
 
-            alert(
-    "Formulario enviado correctamente y almacenado en Supabase."
-);
-
-console.log("PDF URL:", pdfUrl);
             if (respuesta.ok) {
                 alert("Formulario enviado correctamente");
-            } 
+            } else {
+                alert(
+                    "Error al enviar correo: " +
+                    (data.error || "desconocido")
+                );
+            }
 
-        } 
+        } catch (error) {
+
+            console.error("ERROR GENERAL:", error);
+
+            alert(
+                "Error: " +
+                (error.message || "desconocido")
+            );
+
+        }
 
     });
 
