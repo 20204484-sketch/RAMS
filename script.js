@@ -97,32 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             console.log("PDF URL:", pdfUrl);
 
-            // =========================
-            // ENVIAR URL DEL PDF A VERCEL
-            // =========================
+          console.log("PDF guardado correctamente.");
+console.log("URL:", pdfUrl);
 
-     const respuesta = await fetch(
-    "https://rams-nine-smoky.vercel.app/api/enviar",
-    {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            pdfUrl
-        })
-    }
-);
-
-const textoRespuesta = await respuesta.text();
-
-console.log("Respuesta servidor:", textoRespuesta);
-
-if (respuesta.ok) {
-    alert("Formulario enviado correctamente");
-} else {
-    alert("Error al enviar correo: " + textoRespuesta);
-}       
+alert("PDF guardado correctamente en Supabase.");      
 
     });
 
