@@ -16,7 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     boton.addEventListener("click", async () => {
 
-        try {
+    alert("CLICK DETECTADO");
+
+    try {
+
+        alert("ENTRÓ AL TRY");
 
             // ====================================
             // GENERAR PDF
@@ -28,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("paginaCompleta");
 
             const canvas = await html2canvas(
+                alert("HTML2CANVAS OK");
                 elemento,
                 {
                     scale: 1,
@@ -40,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const pdf =
                 new jsPDF("p", "mm", "a4");
+        alert("PDF CREADO");
 
             const imgWidth = 210;
             const pageHeight = 297;
@@ -91,7 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // SUBIR A SUPABASE
             // ====================================
 
-            const pdfBlob =
+        alert("ANTES DE SUBIR A SUPABASE");   
+        const pdfBlob =
                 pdf.output("blob");
 
             const nombreArchivo =
