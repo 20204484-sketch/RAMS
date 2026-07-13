@@ -1,3 +1,20 @@
+console.log("Script cargado");
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("DOM cargado");
+
+    const boton = document.getElementById("btnEnviar");
+
+    console.log("Botón:", boton);
+
+    boton.addEventListener("click", async () => {
+
+        console.log("CLICK");
+
+    });
+
+});
 const SUPABASE_URL = "https://hrzojutcdphellriqjas.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhyem9qdXRjZHBoZWxscmlxamFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMjk5MDksImV4cCI6MjA5NzgwNTkwOX0.a8jcXNAZwyxret_s6DUjh81Aq9CVZAG2r-plFq4Ub4g";
 
