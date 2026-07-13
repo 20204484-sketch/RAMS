@@ -144,7 +144,17 @@ if (respuesta.ok) {
           console.log("PDF guardado correctamente.");
 console.log("URL:", pdfUrl);
 
-alert("PDF guardado correctamente en Supabase.");      
+alert("PDF guardado correctamente en Supabase."); 
+            } catch (error) {
+
+    console.error(error);
+    alert("Error: " + error.message);
+
+}
+
+    });
+
+});
 
     });
 
