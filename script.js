@@ -112,6 +112,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const pdfUrl = publicUrlData.publicUrl;
 
+            // =========================
+// ENVIAR URL DEL PDF A VERCEL
+// =========================
+
+const respuesta = await fetch(
+    "https://rams-nine-smoky.vercel.app/api/enviar",
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            pdfUrl
+        })
+    }
+);
+
+const textoRespuesta = await respuesta.text();
+
+console.log("Respuesta servidor:", textoRespuesta);
+
+if (respuesta.ok) {
+    alert("Formulario enviado correctamente");
+} else {
+    alert("Error al enviar correo: " + textoRespuesta);
+}
+
             console.log("PDF URL:", pdfUrl);
 
           console.log("PDF guardado correctamente.");
