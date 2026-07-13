@@ -31,15 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const elemento =
                 document.getElementById("paginaCompleta");
 
-            const canvas = await html2canvas(
-                alert("HTML2CANVAS OK");
-                elemento,
-                {
-                    scale: 1,
-                    useCORS: true
-                }
-            );
+          const canvas = await html2canvas(
+    elemento,
+    {
+        scale: 1,
+        useCORS: true
+    }
+);
 
+alert("HTML2CANVAS OK");
             const imgData =
                 canvas.toDataURL("image/png");
 
