@@ -1,7 +1,7 @@
 const SUPABASE_URL = "https://hrzojutcdphellriqjas.supabase.co";
 
 const SUPABASE_ANON_KEY =
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhyem9qdXRjZHBoZWxscmlxamFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMjk5MDksImV4cCI6MjA5NzgwNTkwOX0.a8jcXNAZwyxret_s6DUjh81Aq9CVZAG2r-plFq4Ub4g";
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhyem9qdXRjZHBoZWxscmlxamFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMjk5MDksImV4cCI6MjA5NzgwNTkwOX0.a8jcXNAZwyxret_s6DUjh81Aq9CVZAG2r-plFq4Ub4g";
 
 const supabaseClient = supabase.createClient(
     SUPABASE_URL,
@@ -16,11 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     boton.addEventListener("click", async () => {
 
-    alert("CLICK DETECTADO");
-
-    try {
-
-        alert("ENTRÓ AL TRY");
+        try {
 
             // ====================================
             // GENERAR PDF
@@ -31,21 +27,19 @@ document.addEventListener("DOMContentLoaded", () => {
             const elemento =
                 document.getElementById("paginaCompleta");
 
-          const canvas = await html2canvas(
-    elemento,
-    {
-        scale: 1,
-        useCORS: true
-    }
-);
+            const canvas = await html2canvas(
+                elemento,
+                {
+                    scale: 1,
+                    useCORS: true
+                }
+            );
 
-alert("HTML2CANVAS OK");
             const imgData =
                 canvas.toDataURL("image/png");
 
             const pdf =
                 new jsPDF("p", "mm", "a4");
-        alert("PDF CREADO");
 
             const imgWidth = 210;
             const pageHeight = 297;
@@ -97,8 +91,7 @@ alert("HTML2CANVAS OK");
             // SUBIR A SUPABASE
             // ====================================
 
-        alert("ANTES DE SUBIR A SUPABASE");   
-        const pdfBlob =
+            const pdfBlob =
                 pdf.output("blob");
 
             const nombreArchivo =
@@ -120,12 +113,10 @@ alert("HTML2CANVAS OK");
 
             if (uploadError) {
 
-                console.error(
-                    uploadError
-                );
+                console.error(uploadError);
 
                 alert(
-                    "Error Supabase:\n\n" +
+                    "Error al subir el PDF a Supabase:\n\n" +
                     uploadError.message
                 );
 
@@ -134,7 +125,7 @@ alert("HTML2CANVAS OK");
             }
 
             // ====================================
-            // OBTENER URL PUBLICA
+            // OBTENER URL PÚBLICA
             // ====================================
 
             const {
@@ -149,14 +140,13 @@ alert("HTML2CANVAS OK");
             const pdfUrl =
                 publicUrlData.publicUrl;
 
-            console.log(
-                "PDF URL:",
-                pdfUrl
-            );
+            console.log("PDF URL:", pdfUrl);
 
-            alert(
-                "PDF guardado correctamente en Supabase."
-            );
+            // ====================================
+            // ÉXITO
+            // ====================================
+
+            alert("Envío exitoso.");
 
         }
 
@@ -168,7 +158,7 @@ alert("HTML2CANVAS OK");
             );
 
             alert(
-                "Error:\n\n" +
+                "Ocurrió un error al enviar el formulario.\n\n" +
                 error.message
             );
 
