@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     boton.addEventListener("click", async () => {
 
-    alert("CLICK DETECTADO");
+    
 
     try {
 
-        alert("ENTRÓ AL TRY");
+        
 
             // ====================================
             // GENERAR PDF
@@ -39,13 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 );
 
-alert("HTML2CANVAS OK");
+
             const imgData =
                 canvas.toDataURL("image/png");
 
             const pdf =
                 new jsPDF("p", "mm", "a4");
-        alert("PDF CREADO");
+        
 
             const imgWidth = 210;
             const pageHeight = 297;
@@ -97,7 +97,7 @@ alert("HTML2CANVAS OK");
             // SUBIR A SUPABASE
             // ====================================
 
-        alert("ANTES DE SUBIR A SUPABASE");   
+           
         const pdfBlob =
                 pdf.output("blob");
 
@@ -155,7 +155,7 @@ alert("HTML2CANVAS OK");
             );
 
             alert(
-                "PDF guardado correctamente en Supabase."
+                "Envío exitoso."
             );
 
         }
