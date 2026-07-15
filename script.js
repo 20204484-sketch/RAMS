@@ -1,7 +1,7 @@
 const SUPABASE_URL = "https://hrzojutcdphellriqjas.supabase.co";
 
 const SUPABASE_ANON_KEY =
-"sb_publishable_M_LqnyjOBZzPRxfsJ_5khg_wpUu1DZN";
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhyem9qdXRjZHBoZWxscmlxamFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMjk5MDksImV4cCI6MjA5NzgwNTkwOX0.a8jcXNAZwyxret_s6DUjh81Aq9CVZAG2r-plFq4Ub4g";
 
 const supabaseClient = supabase.createClient(
     SUPABASE_URL,
@@ -16,7 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     boton.addEventListener("click", async () => {
 
-        try {
+    alert("CLICK DETECTADO");
+
+    try {
+
+        alert("ENTRÓ AL TRY");
 
             // ====================================
             // GENERAR PDF
@@ -27,19 +31,21 @@ document.addEventListener("DOMContentLoaded", () => {
             const elemento =
                 document.getElementById("paginaCompleta");
 
-            const canvas = await html2canvas(
-                elemento,
-                {
-                    scale: 1,
-                    useCORS: true
-                }
-            );
+          const canvas = await html2canvas(
+    elemento,
+    {
+        scale: 1,
+        useCORS: true
+    }
+);
 
+alert("HTML2CANVAS OK");
             const imgData =
                 canvas.toDataURL("image/png");
 
             const pdf =
                 new jsPDF("p", "mm", "a4");
+        alert("PDF CREADO");
 
             const imgWidth = 210;
             const pageHeight = 297;
@@ -91,7 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // SUBIR A SUPABASE
             // ====================================
 
-            const pdfBlob =
+        alert("ANTES DE SUBIR A SUPABASE");   
+        const pdfBlob =
                 pdf.output("blob");
 
             const nombreArchivo =
@@ -113,10 +120,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (uploadError) {
 
-                console.error(uploadError);
+                console.error(
+                    uploadError
+                );
 
                 alert(
-                    "Error al subir el PDF a Supabase:\n\n" +
+                    "Error Supabase:\n\n" +
                     uploadError.message
                 );
 
@@ -125,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // ====================================
-            // OBTENER URL PÚBLICA
+            // OBTENER URL PUBLICA
             // ====================================
 
             const {
@@ -140,13 +149,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const pdfUrl =
                 publicUrlData.publicUrl;
 
-            console.log("PDF URL:", pdfUrl);
+            console.log(
+                "PDF URL:",
+                pdfUrl
+            );
 
-            // ====================================
-            // ÉXITO
-            // ====================================
-
-            alert("Envío exitoso.");
+            alert(
+                "PDF guardado correctamente en Supabase."
+            );
 
         }
 
@@ -158,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             alert(
-                "Ocurrió un error al enviar el formulario.\n\n" +
+                "Error:\n\n" +
                 error.message
             );
 
