@@ -12,6 +12,12 @@ body{
     padding:25px;
     box-shadow:0 0 10px rgba(0,0,0,.15);
 }
+.logo{
+    position:absolute;
+    top:25px;
+    left:25px;
+    width:100px;
+}
 
 .encabezado{
     text-align:center;
